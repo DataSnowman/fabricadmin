@@ -8,6 +8,7 @@ Welcome to the workhop.  The purpose of the workshop is to bring you up to speed
 ## Fabric Admin Tools:
 
 * Microsoft Fabric [Fabric Admin](https://learn.microsoft.com/en-us/fabric/admin/microsoft-fabric-admin) and [Fabric Documentation for Admins](https://learn.microsoft.com/en-us/fabric/admin/) and [All Fabric Documentation](https://learn.microsoft.com/en-us/fabric/)
+* [Microsoft OneLake file explorer for Windows](https://www.microsoft.com/en-us/download/details.aspx?id=105222)
 * GitHub [This Repo](https://github.com/DataSnowman/fabricadmin) and [Fabric Docs](https://github.com/MicrosoftDocs/fabric-docs/tree/main/docs)
 * VSCode [Install](https://code.visualstudio.com/download) and [Extension](https://marketplace.visualstudio.com/items?itemName=ms-mssql.sql-database-projects-vscode)
 * Azure Data Studio [Install](https://learn.microsoft.com/en-us/azure-data-studio/download-azure-data-studio?tabs=win-install%2Cwin-user-install%2Credhat-install%2Cwindows-uninstall%2Credhat-uninstall) and [Documentation](https://learn.microsoft.com/en-us/azure-data-studio/)
@@ -225,19 +226,19 @@ The notebook creates the medicarepartd Delta table in the Lakehouse
 ![medicarepartdtable](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/medicarepartdtable.png)
 
 
-### Open and query the Delta Table using the Lakehouse SQL endpoint
+### Open and query the Delta Table using the Lakehouse SQL analytics endpoint
 
-In the top right corner of the Lakehouse interface you can switch to the SQL Endpoint
+In the top right corner of the Lakehouse interface you can switch to the SQL analytics endpoint
 
-![switchtosqlep](https://raw.githubusercontent.com/datasnowman/fabriclakehouse/main/images/switchtosqlep.png)
+![switchtosqlep](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/switchtosqlep.png)
 
 The Delta table automatically creates a SQL Table that can be queried with SQL
 
-![sqlep](https://raw.githubusercontent.com/datasnowman/fabriclakehouse/main/images/sqlep.png)
+![sqlep](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/sqlep.png)
 
-Click on New query
+Click on `New SQL query`
 
-![newquery](https://raw.githubusercontent.com/datasnowman/fabriclakehouse/main/images/newquery.png)
+![newquery](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/newquery.png)
 
 Copy the existing query to count the rows loaded by fourdigityear which represents the number of rows in each yearly csv file
 
@@ -247,17 +248,36 @@ SELECT fourdigityear, count(Prscrbr_NPI) as numrows FROM medicarepartd GROUP BY 
 
 Click Run
 
-![rowsbyyear](https://raw.githubusercontent.com/datasnowman/fabriclakehouse/main/images/rowsbyyear.png)
+![rowsbyyear](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/rowsbyyear.png)
 
-If you highlight the SQL statement
-you can click Save as view to create a view
+If you highlight the SQL statement you can click `Save as view` to create a view like `yearrowtotalsvw`
 
-![saveasaview](https://raw.githubusercontent.com/datasnowman/fabriclakehouse/main/images/saveasaview.png)
+![saveasaview](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/saveasaview.png)
 
 Click OK 
 
-![viewname](https://raw.githubusercontent.com/datasnowman/fabriclakehouse/main/images/viewname.png)
-
 Find the view and look at the data prreview
 
-![viewdatapreview](https://raw.githubusercontent.com/datasnowman/fabriclakehouse/main/images/viewdatapreview.png)
+![viewdatapreview](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/viewdatapreview.png)
+
+In a similar way you can download the data in the query to Excel.  If you highlight the SQL statement you can click Open in Excel to create an Excel file.
+
+![excel](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/excel.png)
+
+Click Continue and save and open the Excel file, Authenticate, etc
+
+Two give users Read access to the table and views created in the Lakehouse just provide the user with Viewer access to the workspace.  Click on Manage access
+
+![manageaccess](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/manageaccess.png)
+
+Select the user or security group and select `Viewer` and click `Add`
+
+![viewaccess](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/viewaccess.png)
+
+The user or the users in the security group now have read access to the tables and views
+
+![readaccess](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/readaccess.png)
+
+
+
+
