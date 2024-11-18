@@ -98,23 +98,23 @@ Or if you just uploaded one file more like this
 
 Go back into the Workspace and create a new Data pipeline.  Click on Data Pipeline 
 
-![newpl](https://raw.githubusercontent.com/datasnowman/fabriclakehouse/main/images/newpl.png)
+![newpl](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/newpl.png)
 
-Name the pipeline something like `Unzip and Load csv` and click Create
+Name the pipeline something like `UnzipLoad` and click Create
 
-![createpl](https://raw.githubusercontent.com/datasnowman/fabriclakehouse/main/images/createpl.png)
+![createpl](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/createpl.png)
 
 This will open up the Data Factory pipeline.  Click on Add pipeline activity and select Copy data
 
-![copydata](https://raw.githubusercontent.com/datasnowman/fabriclakehouse/main/images/copydata.png)
+![copydata](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/copydata.png)
 
 Give the Copy activity a name like `Unzip and Copy to raw`
 
-![UnzipCopyRaw](https://raw.githubusercontent.com/datasnowman/fabriclakehouse/main/images/UnzipCopyRaw.png)
+![UnzipCopyRaw](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/UnzipCopyRaw.png)
 
 On the Source tab choose the Workspace, Lakehouse, Files, and File Path and browse to the zip folder and click Ok
 
-![sourcebrowse](https://raw.githubusercontent.com/datasnowman/fabriclakehouse/main/images/sourcebrowse.png)
+![sourcebrowse](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/sourcebrowse.png)
 
 Your source choice should look like this:
 
@@ -128,7 +128,7 @@ Click on Settings and select Compression Type: `ZipDeflate (.zip)`
 
 Preserve zip file name as folder: unchecked
 
-![sourceunzip](https://raw.githubusercontent.com/datasnowman/fabriclakehouse/main/images/sourceunzip.png)
+![sourceunzip](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/sourceunzip.png)
 
 On the Destination tab choose the Workspace, Lakehouse, Files, and File Path and browse to the raw folder and click Ok
 
@@ -136,23 +136,23 @@ File path: `medicare/raw`
 
 File Format: Binary
 
-![destinationraw](https://raw.githubusercontent.com/datasnowman/fabriclakehouse/main/images/destinationraw.png)
+![destinationraw](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/destinationraw.png)
 
 Save and Run the pipeline
 
-![inprogress](https://raw.githubusercontent.com/datasnowman/fabriclakehouse/main/images/inprogress.png)
+![inprogress](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/inprogress.png)
 
 The pipeline will take the zipfiles in `medicare/zip`
 
-![zipfiles](https://raw.githubusercontent.com/datasnowman/fabriclakehouse/main/images/zipfiles.png)
+![zipfiles](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/zipfiles.png)
 
 And when succeeded
 
-![succeeded](https://raw.githubusercontent.com/datasnowman/fabriclakehouse/main/images/succeeded.png)
+![succeeded](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/succeeded.png)
 
 And uzip them to `medicare/raw`
 
-![unzippedfiles.png](https://raw.githubusercontent.com/datasnowman/fabriclakehouse/main/images/zipfiles.png)
+![unzippedfiles.png](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/zipfiles.png)
 
 ### Load all the files into a Delta Table using a Data Engineering Notebook
 
