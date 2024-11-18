@@ -90,6 +90,10 @@ All the files should look like this
 
 ![zip](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/zip.png)
 
+Or if you just uploaded one file more like this
+
+![onezip](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/onezip.png)
+
 ### Create a Data Factory Pipeline to unzip and copy the files to the raw folder
 
 Go back into the Workspace and create a new Data pipeline.  Click on Data Pipeline 
