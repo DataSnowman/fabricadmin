@@ -278,6 +278,24 @@ The user or the users in the security group now have read access to the tables a
 
 ![readaccess](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/readaccess.png)
 
+## Part 2: Warehouse and Data Integration
 
+### Create a Warehouse
+
+### Copy Into with Sprocs
+
+### Automating Sprocs with Pipelines
+
+### Securing Tables
+
+### Sharing Warehouses and Lakehouses
+
+### Reliability, Disaster Recovery, and Restore
+
+[Reliability in Microsoft Fabric](https://learn.microsoft.com/en-us/azure/reliability/reliability-fabric)
+
+[Disaster recovery and data protection for OneLake](https://learn.microsoft.com/en-us/fabric/onelake/onelake-disaster-recovery)
+
+[Restore in-place of a warehouse in Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/data-warehouse/restore-in-place)
 
 
