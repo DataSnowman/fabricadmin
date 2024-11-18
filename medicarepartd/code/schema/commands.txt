@@ -1,0 +1,16 @@
+﻿Commands to edit the large schema StructType for the base schema and after adding metadata tables
+for the Delta Tables
+
+schemacsv = StructType.fromJson(json.loads(jschemacsv)
+schematable = StructType.fromJson(json.loads(jschematable))
+
+Command-shift-P to get to Command Palette
+Ctrl-shift-P on WIndows
+
+Option-Command-B for Beautified multi-line json
+Shift-Alt-F on Windows
+
+Control-B if needed because it does not show in file
+
+Control-J for single-line json
+(Ctrl+Shift+P) and type Join Lines on Windows
