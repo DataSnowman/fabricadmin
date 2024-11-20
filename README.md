@@ -282,13 +282,87 @@ The user or the users in the security group now have read access to the tables a
 
 ### Create a Warehouse
 
-### Copy Into with Sprocs
+Open your workspace.  Click on New and choose Warehouse.  
+
+![createwh](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/createwh.png)
+
+This will pop up a New Warehouse dialog.  Enter a name like `mywarehouse` and click Create
+
+![whname](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/whname.png)
+
+This will create an open up your new Warehouse that looks like this.
+
+![mywarehouse](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/mywarehouse.png)
+
+### Create a Schema, Table and Insert Rows
+
+Click on the three dots `...` to the right of Schemas and select `New schema`
+
+![schemas](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/schemas.png)
+
+Create a dev schema by changing the schema name to dev or copy and paste the following code and click `Run`
+
+```
+CREATE SCHEMA [dev]
+GO
+```
+
+![devschema](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/devschema.png)
+
+Click on the three dots `...` to the right of Tables under the dev schema and select `New table`
+
+![newtable](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/newtable.png)
+
+Copy and paste the following SQL and Click `Run`
+
+```
+CREATE TABLE [dev].[city]
+    (
+        [CityKey] [int] NOT NULL,
+        [City] [varchar](80) NULL,
+        [StateProvince] [varchar](80) NULL,
+        [Country] [varchar](80) NULL
+    );
+```
+
+You should now have a new table called `city`
+
+![createcity](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/createcity.png)
+
+Click on `New SQL query` to Insert a row into the `city` table.  Copy and paste the following SQL and click `Run`
+
+```
+INSERT INTO [mywarehouse].[dev].[city]
+VALUES (1,'New York', 'New York', 'United States')
+```
+
+![insertcity](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/insertcity.png)
+
+Click on `New SQL query` to Select the rows in the `city` table.  Copy and paste the following SQL and click `Run`
+
+```
+SELECT [CityKey],
+	   [City],
+	   [StateProvince],
+	   [Country]
+FROM [mywarehouse].[dev].[city]
+```
+
+![selectcity](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/selectcity.png)
+
+Look to see that the delta folder and parquet files were created by looking at `Microsoft OneLake file explorer for Windows`
+
+![deltaonelake](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/deltaonelake.png)
+
+### Copy Into with SQL and Sprocs
 
 ### Automating Sprocs with Pipelines
 
 ### Securing Tables
 
 ### Sharing Warehouses and Lakehouses
+
+Create a sample warehouse
 
 ### Reliability, Disaster Recovery, and Restore
 
