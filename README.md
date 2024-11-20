@@ -356,6 +356,8 @@ Look to see that the delta folder and parquet files were created by looking at `
 
 ![deltafiles](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/deltafiles.png)
 
+### Connect to the Warehouse with SSMS or Azure Data Studio
+
 ### Copy Into with SQL and Sprocs
 
 ### Automating Sprocs with Pipelines
@@ -364,7 +366,27 @@ Look to see that the delta folder and parquet files were created by looking at `
 
 ### Sharing Warehouses and Lakehouses
 
-Create a sample warehouse
+### Create a sample warehouse
+
+Open your workspace.  Click on New and choose Warehouse.  
+
+![createwh](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/createwh.png)
+
+This will pop up a New Warehouse dialog.  Enter a name like `mysampleWH` and click Create
+
+![samplewhname](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/samplewhname.png)
+
+You should see this as it is created
+
+![loadingsamplewh](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/loadingsamplewh.png)
+
+When finished you should have these seven tables
+
+![samplewhtables](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/samplewhtables.png)
+
+Here are the tables in `Microsoft OneLake file explorer for Windows`
+
+![sevendelta](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/sevendelta.png)
 
 ### Reliability, Disaster Recovery, and Restore
 
