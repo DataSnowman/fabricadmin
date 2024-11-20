@@ -352,7 +352,9 @@ FROM [mywarehouse].[dev].[city]
 
 Look to see that the delta folder and parquet files were created by looking at `Microsoft OneLake file explorer for Windows`
 
-![deltaonelake](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/deltaonelake.png)
+![onelakefileexplorer](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/onelakefileexplorer.png)
+
+![deltafiles](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/deltafiles.png)
 
 ### Copy Into with SQL and Sprocs
 
