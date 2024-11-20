@@ -298,7 +298,7 @@ This will create an open up your new Warehouse that looks like this.
 
 Click on the three dots `...` to the right of Schemas and select `New schema`
 
-![schemas](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/schemas.png)
+![schema](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/schema.png)
 
 Create a dev schema by changing the schema name to dev or copy and paste the following code and click `Run`
 
