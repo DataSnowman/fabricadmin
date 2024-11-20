@@ -374,9 +374,57 @@ You now should be connected
 
 ![connectedads](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/connectedads.png)
 
-### Copy Into with SQL and Sprocs
+### Create Insert Into with SQL
 
-### Automating Sprocs with Pipelines
+Create a new table in ADS, SSMS, or Fabric SQL analytics endpoint Query editor.
+Copy, paste, and Run this DDL
+
+```
+-- Create cms_provider_dim_drug table
+    IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='cms_provider_dim_drug' AND xtype='U')
+    BEGIN
+        CREATE TABLE [dev].[cms_provider_dim_drug]
+        (
+            [Brnd_Name] [varchar](8000)  NULL,
+	        [Gnrc_Name] [varchar](8000)  NULL,
+	        [Max_Year] [int]  NULL,
+	        [Min_Year] [int]  NULL,
+	        [drug_key] [bigint]  NULL
+        )
+    END
+```
+
+![createdimdrug](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/createdimdrug.png)
+
+Insert Into the table you just created.  Copy, Paste, update the name of your Lakehouse (replace <lakehousename> in the FROM clause) and Run.
+
+```
+    -- Populate cms_provider_dim_drug
+    INSERT INTO [dev].[cms_provider_dim_drug] (Brnd_Name, Gnrc_Name, Max_Year, Min_Year, drug_key)
+    SELECT [Brnd_Name]
+          ,[Gnrc_Name]
+          ,MAX([fourdigityear]) AS [Max_Year]
+          ,MIN([fourdigityear]) AS [Min_Year]
+          ,ROW_NUMBER() OVER (ORDER BY [Brnd_Name],[Gnrc_Name] ASC) AS [drug_key]
+    FROM [<lakehousename>].[dbo].[medicarepartd]
+    GROUP BY [Brnd_Name],[Gnrc_Name]
+```
+
+![insertintodimdrug](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/insertintodimdrug.png)
+
+My Workspace name for example is `trindl` and the Lakehouse name is `medicarepartd`.  The Lakehouse supports 4 part naming when running Spark SQL “workspace.lakehouse.schema.table.” to write cross workspace Spark SQL queries
+
+Run and select to see if the rows are there
+
+```
+SELECT * FROM [dev].[cms_provider_dim_drug]
+```
+
+![selectdimdrug](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/selectdimdrug.png)
+
+### SQL Sprocs and Automating Sprocs with Pipelines
+
+### Copy Into, and CTAS 
 
 ### Securing Tables
 
