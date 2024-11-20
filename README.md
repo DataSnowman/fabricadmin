@@ -358,6 +358,22 @@ Look to see that the delta folder and parquet files were created by looking at `
 
 ### Connect to the Warehouse with SSMS or Azure Data Studio
 
+You can find the SQL analytics endpoint connection string by clicking on the gear shaped settings button
+
+![settings](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/settings.png)
+
+Find the SQL connection string and copy this string and use it to connect externally to the item from Power BI desktop or client tools like Azure Data Studio or SQL Server Management Studio (SSMS).
+
+![sqlconstring](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/sqlconstring.png)
+
+Here is how to connect to Azure Data Studio (ADS) Fill out the connection info and click `Connect`
+
+![ads](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/ads.png)
+
+You now should be connected
+
+![connectedads](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/connectedads.png)
+
 ### Copy Into with SQL and Sprocs
 
 ### Automating Sprocs with Pipelines
