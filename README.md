@@ -47,7 +47,7 @@ Give the workspace a name like fabriclakehouse (or if you have multiple users ta
 
 ### Create a Lakehouse
 
-You now should be in your new workspace.  Click on New and choose Lakehouse.  
+You now should be in your new workspace.  Click on New item and choose Lakehouse.  
 
 ![createlh](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/createlh.png)
 
@@ -97,7 +97,7 @@ Or if you just uploaded one file more like this
 
 ### Create a Data Factory Pipeline to unzip and copy the files to the raw folder
 
-Go back into the Workspace and create a new Data pipeline.  Click on Data Pipeline 
+Go back into the Workspace and create a new Data pipeline.  Click on New item > Data Pipeline 
 
 ![newpl](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/newpl.png)
 
@@ -282,7 +282,7 @@ The user or the users in the security group now have read access to the tables a
 
 ### Create a Warehouse
 
-Open your workspace.  Click on New and choose Warehouse.  
+Open your workspace.  Click on New item and choose Warehouse.  
 
 ![createwh](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/createwh.png)
 
@@ -422,13 +422,59 @@ SELECT * FROM [dev].[cms_provider_dim_drug]
 
 ![selectdimdrug](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/selectdimdrug.png)
 
+See [Ingest data into the Warehouse](https://learn.microsoft.com/en-us/fabric/data-warehouse/ingest-data) for more info
+
 ### SQL Sprocs and Automating Sprocs with Pipelines
+
+Have a look at the `CreateCopyInto.sql` stored procedure in the Repo in the scripts folder
+
+Go back into you workspace and click on New item > Data pipeline.  Name it `runSproc` and click `Create`
+
+![runSproc](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/runSproc.png)
+
+Go to the `Activities` tab in the pipeline and the three dots `...` and drag the Script transform onto the canvas.  
+
+![script](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/script.png)
+
+Select the Script transform and name it `Run CreateCopyInto` and connect to your Warehouse.
+
+![runscript](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/runscript.png)
+
+Click on the pencil icon next to the query editor.  Paste the code from `CreateCopyInto.sql` and make sure you update the <lakehousename> in the FROM clauses of the 4 INSERT INTO SQL Statements. Something like `FROM [medicarepartd].[dbo].[medicarepartd]`
+
+![copytoclipboard](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/copytoclipboard.png)
+
+Click on `Run` in the pipeline
+
+![run](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/run.png)
+
+The Pipeline should succeed and look like this
+
+![succeededsproc](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/succeededsproc.png)
+
+Once a Stored Procedure is created you can also run it with a Stored procedure activity
+
+![sprocactivity](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/sprocactivity.png)
 
 ### Copy Into, and CTAS 
 
+See COPY INTO [Ingest data into your Warehouse using the COPY statement](https://learn.microsoft.com/en-us/fabric/data-warehouse/ingest-data-copy)
+
+See CTAS [Ingest data into your Warehouse using Transact-SQL](https://learn.microsoft.com/en-us/fabric/data-warehouse/ingest-data-tsql)
+
 ### Securing Tables
 
+[Column-level security in Fabric data warehousing](https://learn.microsoft.com/en-us/fabric/data-warehouse/column-level-security)
+
+[Row-level security in Fabric data warehousing](https://learn.microsoft.com/en-us/fabric/data-warehouse/row-level-security)
+
+[Dynamic data masking in Fabric data warehousing](https://learn.microsoft.com/en-us/fabric/data-warehouse/dynamic-data-masking)
+
 ### Sharing Warehouses and Lakehouses
+
+[How lakehouse sharing works](https://learn.microsoft.com/en-us/fabric/data-engineering/lakehouse-sharing)
+
+[Share your data and manage permissions](https://learn.microsoft.com/en-us/fabric/data-warehouse/share-warehouse-manage-permissions)
 
 ### Create a sample warehouse
 
@@ -436,7 +482,7 @@ Open your workspace.  Click on New and choose Warehouse.
 
 ![createwh](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/createwh.png)
 
-This will pop up a New Warehouse dialog.  Enter a name like `mysampleWH` and click Create
+This will pop up a New item Warehouse dialog.  Enter a name like `mysampleWH` and click Create
 
 ![samplewhname](https://raw.githubusercontent.com/datasnowman/fabricadmin/main/images/samplewhname.png)
 
@@ -459,5 +505,3 @@ Here are the tables in `Microsoft OneLake file explorer for Windows`
 [Disaster recovery and data protection for OneLake](https://learn.microsoft.com/en-us/fabric/onelake/onelake-disaster-recovery)
 
 [Restore in-place of a warehouse in Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/data-warehouse/restore-in-place)
-
-
